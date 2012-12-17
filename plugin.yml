@@ -1,0 +1,20 @@
+name: chatgear
+main: com.github.mpotacon.chatgear.chatgear
+version: 0.1
+author: mpotacon
+description: Bukkit Chat Plugin
+commands:
+    ping:
+        description: pong
+        usage: /<command>
+    tell:
+        description: send a private message
+        usage: /<command>
+permissions:
+    chatgear.*:
+        description: Gives access to all chatgear commands
+        children:
+            irondoor.tell: true
+    chatgear.tell:
+        description: Allows you to send a private message
+        default: op
