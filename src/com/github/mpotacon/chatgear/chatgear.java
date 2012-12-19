@@ -17,6 +17,7 @@ public final class chatgear extends JavaPlugin {
 	public void onEnable(){
 		getCommand("tell").setExecutor(new tellCommand());
 		getCommand("ping").setExecutor(new pingCommand());
+		getCommand("mute").setExecutor(new muteCommand());
 		PluginManager pm = getServer().getPluginManager();
 		pm.registerEvents(this.cl, this);
 	}

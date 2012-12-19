@@ -17,12 +17,13 @@ public class tellCommand implements CommandExecutor {
 		if(commandLabel.equalsIgnoreCase("tell") || commandLabel.equalsIgnoreCase("message")){
 			if(Bukkit.getPlayer(args[0]).hasPermission("chatgear.tell")){
 				if(args.length == 0){
-					player.sendMessage(ChatColor.RED + "/tell <to> <Message>");
-					return true;
+					player.sendMessage(ChatColor.RED + "/tell <to> <message>");
+					return false;
 				}else if(args.length >= 1){
 					Player targetPlayer = player.getServer().getPlayer(args[0]);
 					if(sender == targetPlayer){
 						player.sendMessage(ChatColor.RED + "You CANNOT send your self a message");
+						return false;
 					}else if(player.getServer().getPlayer(args[0])!= null ){
 						StringBuilder message = new StringBuilder();
 	                    	for(int i = 1; i < args.length; i++){
@@ -39,14 +40,15 @@ public class tellCommand implements CommandExecutor {
 	                        	return true;
 					}else{
 						player.sendMessage(ChatColor.RED + "Player Not Online");
-						return true;
+						return false;
 					}
 				}
 			}else{
 				player.sendMessage(ChatColor.RED + "You do not have permission to send a message");
-				return true;
+				return false;
 			}
 		}
 		return false;	
 	}
 }
+

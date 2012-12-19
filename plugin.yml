@@ -6,10 +6,13 @@ description: Bukkit Chat Plugin
 commands:
     ping:
         description: pong
-        usage: /<command>
+        usage: /ping
     tell:
         description: send a private message
-        usage: /<command>
+        usage: /tell <player> <message> 
+    mute:
+        description: mutes a player from chat
+        usage: /mute <player>    
 permissions:
     chatgear.*:
         description: Gives access to all chatgear commands
@@ -18,7 +21,10 @@ permissions:
             chatgear.receive: true
     chatgear.tell:
         description: Allows you to send a private message
-        default: op
+        default: true
     chatgear.receive:
         description: Allows you to receive a private message
+        default: true
+    chatgear.mute:
+        description: Allows you to mute a player
         default: op
