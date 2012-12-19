@@ -17,7 +17,7 @@ public class muteCommand implements CommandExecutor {
 				Player player = Bukkit.getServer().getPlayer(args[0]);
 					if(player.isOnline()){
 						if(player.isOp()){
-							sender.sendMessage("You can not mute " + player);
+							sender.sendMessage(ChatColor.RED + "You can not mute " + player);
 							return false;
 						} else if(chatListener.mutedPlayers.containsKey(player.getName())){
 							chatListener.mutedPlayers.remove(player.getName());
@@ -26,10 +26,10 @@ public class muteCommand implements CommandExecutor {
 						return true;
 						}
 					}
-					sender.sendMessage("Player not online.");
+					sender.sendMessage(ChatColor.RED + "Player is not online.");
 					return false;
 				}
-				sender.sendMessage("/mute <playername>");
+				sender.sendMessage(ChatColor.RED +"/mute <playername>");
 				return false;
 			}
 			sender.sendMessage(ChatColor.RED + "You do not have permission to mute a player");
