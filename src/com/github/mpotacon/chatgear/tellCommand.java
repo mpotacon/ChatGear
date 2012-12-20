@@ -18,13 +18,13 @@ public class tellCommand implements CommandExecutor {
 			if(Bukkit.getPlayer(args[0]).hasPermission("chatgear.tell")){
 				if(args.length == 0){
 					player.sendMessage(ChatColor.RED + "/tell <to> <message>");
-					return false;
+					return true;
 				}else if(args.length >= 1){
 					Player targetPlayer = player.getServer().getPlayer(args[0]);
 					if(sender == targetPlayer){
 						player.sendMessage(ChatColor.RED + "You CANNOT send your self a message");
-						return false;
-					}else if(player.getServer().getPlayer(args[0])!= null ){
+						return true;
+					}else if(player.getServer().getPlayer(args[0]).isOnline()!= true){
 						StringBuilder message = new StringBuilder();
 	                    	for(int i = 1; i < args.length; i++){
 	                    		message.append(args[i]);
@@ -36,16 +36,15 @@ public class tellCommand implements CommandExecutor {
 	                        		Bukkit.getPlayer(args[0]).sendMessage(ChatColor.translateAlternateColorCodes('&', from));
 	                        		sender.sendMessage(ChatColor.translateAlternateColorCodes('&', to));
 	                        	}
-	                        	//targetPlayer.sendMessage(args[1]);
 	                        	return true;
 					}else{
 						player.sendMessage(ChatColor.RED + "Player Not Online");
-						return false;
+						return true;
 					}
 				}
 			}else{
 				player.sendMessage(ChatColor.RED + "You do not have permission to send a message");
-				return false;
+				return true;
 			}
 		}
 		return false;	

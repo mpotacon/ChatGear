@@ -1,6 +1,6 @@
 name: chatgear
 main: com.github.mpotacon.chatgear.chatgear
-version: 0.5
+version: 0.6
 author: mpotacon
 description: Bukkit Chat Plugin
 commands:

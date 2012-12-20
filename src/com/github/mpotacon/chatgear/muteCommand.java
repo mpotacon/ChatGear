@@ -17,10 +17,12 @@ public class muteCommand implements CommandExecutor {
 				Player player = Bukkit.getServer().getPlayer(args[0]);
 					if(player.isOnline()){
 						if(player.isOp()){
-							sender.sendMessage(ChatColor.RED + "You can not mute " + player);
-							return false;
+							sender.sendMessage(ChatColor.RED + "You can not mute " + player.getName());
+							return true;
 						} else if(chatListener.mutedPlayers.containsKey(player.getName())){
 							chatListener.mutedPlayers.remove(player.getName());
+							sender.sendMessage(ChatColor.RED + "You unmuted " + player.getName());
+							return true;
 						} else {
 						chatListener.mutedPlayers.put(player.getName(), null);
 						return true;
