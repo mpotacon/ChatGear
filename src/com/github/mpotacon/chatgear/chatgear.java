@@ -7,10 +7,11 @@ public final class chatgear extends JavaPlugin {
 	public static chatgear plugin;
 	public final chatListener cl = new chatListener();
 	public final chatPEx cPEx = new chatPEx();
-	PluginManager pm = getServer().getPluginManager();
 	
 	@Override
 	public void onEnable(){
+		new ConfigAccessor(this, getConfig().getCurrentPath());
+		PluginManager pm = getServer().getPluginManager();
 		getCommand("tell").setExecutor(new tellCommand());
 		getCommand("ping").setExecutor(new pingCommand());
 		getCommand("mute").setExecutor(new muteCommand());
@@ -21,8 +22,10 @@ public final class chatgear extends JavaPlugin {
 		}		
 	}	
 	
+
 	@Override
 	public void onDisable(){
-		
+		this.saveConfig();
 	}
+	
 }
