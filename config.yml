@@ -1,12 +1,20 @@
 # ChatGear Config File
 # For Chat when not using PermissionEx
 # always use &<0-9,a-f> for colors just put that number or letter
+
 OPcolor: 4
+
 OPchatcolor: 7
+
 playercolor: 7
+
 playerchatcolor: 7
+
 # For Chat when using PermissionEx
 # AdminGroup = group that your admins resign in 
+
 AdminGroup: Admin
+
 # ModGroup = group that your moderators resign in 
+
 ModGroup: Mod
