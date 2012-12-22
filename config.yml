@@ -1,20 +1,21 @@
 # ChatGear Config File
-# For Chat when not using PermissionEx
 # always use &<0-9,a-f> for colors just put that number or letter
-
-OPcolor: 4
-
-OPchatcolor: 7
-
-playercolor: 7
-
-playerchatcolor: 7
+OP:
+    color: 4
+    chatcolor: 7
+player:
+    color: 7
+    chatcolor: 7
+# Break semprates the player name from the message it must be in quotes
+# if you want to change the color of break then exp: "&7:"
+break: ":"
 
 # For Chat when using PermissionEx
-# AdminGroup = group that your admins resign in 
-
-AdminGroup: Admin
-
-# ModGroup = group that your moderators resign in 
-
-ModGroup: Mod
+# If you want admin and mod colors to be held by PermissionsEx set OP color to PEx exp: color: PEx
+# The some will work for player color
+PEx:
+    # AdminGroup = group that your admins resign in, there color will also be held by op colors
+    AdminGroup: Admin
+    # ModGroup = group that your moderators resign in, there color will also be held by op colors
+    ModGroup: Mod
+    # if groups are not set chat will defualt to player colors

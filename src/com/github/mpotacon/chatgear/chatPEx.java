@@ -30,19 +30,93 @@ public class chatPEx implements Listener {
 				event.setMessage("");
 			}
 		}
+		String OP = ChatColor.translateAlternateColorCodes('&', "&" + Bukkit.getPluginManager().getPlugin("chatgear").getConfig().getString("OP.color") + player.getDisplayName());
+	 	String OPcolor = ChatColor.translateAlternateColorCodes('&', "&" + Bukkit.getPluginManager().getPlugin("chatgear").getConfig().getString("OP.chatcolor") + event.getMessage());
+	 	String nonOP = ChatColor.translateAlternateColorCodes('&', "&" + Bukkit.getPluginManager().getPlugin("chatgear").getConfig().getString("player.color") + player.getDisplayName());
+	 	String nonOPcolor = ChatColor.translateAlternateColorCodes('&', "&" + Bukkit.getPluginManager().getPlugin("chatgear").getConfig().getString("player.chatcolor") + event.getMessage());
+	 	String symbol =  ChatColor.translateAlternateColorCodes('&', Bukkit.getPluginManager().getPlugin("chatgear").getConfig().getString("break"));
+				
 		PermissionUser user = PermissionsEx.getUser(player);
 	 	String prefix = ChatColor.translateAlternateColorCodes('&', user.getOwnPrefix());
 	 	String suffix = ChatColor.translateAlternateColorCodes('&', user.getOwnSuffix());
 	 	String admin =  Bukkit.getPluginManager().getPlugin("chatgear").getConfig().getString("AdminGroup");
 	 	String mod = Bukkit.getPluginManager().getPlugin("chatgear").getConfig().getString("ModGroup");
 	 	if(user.inGroup(admin)){
-	 		event.setFormat(prefix  + event.getPlayer().getDisplayName() + ChatColor.GRAY + ": "+ ChatColor.YELLOW + ChatColor.translateAlternateColorCodes('&', event.getMessage()));
-	 	}else if(user.inGroup(mod)){ 
-	 		event.setFormat(prefix  + event.getPlayer().getDisplayName() + ChatColor.GRAY + ": "+ ChatColor.YELLOW + ChatColor.translateAlternateColorCodes('&', event.getMessage()));
+	 		if(prefix != null & suffix != null){
+	 			if (OP == "PEx"){
+	 				event.setFormat(player.getDisplayName() + symbol + " "+ OPcolor + ChatColor.translateAlternateColorCodes('&', event.getMessage()));
+	 			}else{
+	 				event.setFormat(OP + symbol + " " + OPcolor + ChatColor.translateAlternateColorCodes('&', event.getMessage()));
+	 			}
+	 		}else if(prefix != null){
+	 			if (OP == "PEx"){	
+	 				event.setFormat(player.getDisplayName() + suffix + " " + symbol + " " + OPcolor + ChatColor.translateAlternateColorCodes('&', event.getMessage()));
+	 			}else{
+	 				event.setFormat(OP + suffix + " " + symbol + " " + OPcolor + ChatColor.translateAlternateColorCodes('&', event.getMessage()));
+	 			}
+	 		}else if(suffix != null){
+	 			if (OP == "PEx"){
+	 				event.setFormat(prefix + player.getDisplayName() + symbol + " "+ OPcolor + ChatColor.translateAlternateColorCodes('&', event.getMessage()));
+	 			}else{
+	 				event.setFormat(prefix + OP + symbol + " " + OPcolor + ChatColor.translateAlternateColorCodes('&', event.getMessage()));
+	 			}
+	 		}else{
+	 			if (OP == "PEx"){
+	 				event.setFormat(prefix + player.getDisplayName() + suffix + symbol + " "+ OPcolor + ChatColor.translateAlternateColorCodes('&', event.getMessage()));
+	 			}else{
+	 				event.setFormat(prefix + OP + suffix + symbol + " " + OPcolor + ChatColor.translateAlternateColorCodes('&', event.getMessage()));
+	 			}
+	 		}
+	 	}else if(user.inGroup(mod)){
+	 		if(prefix != null & suffix != null){
+	 			if (OP == "PEx"){
+	 				event.setFormat(player.getDisplayName() + symbol + " "+ OPcolor + ChatColor.translateAlternateColorCodes('&', event.getMessage()));
+	 			}else{
+	 				event.setFormat(OP + symbol + " " + OPcolor + ChatColor.translateAlternateColorCodes('&', event.getMessage()));
+	 			}
+	 		}else if(prefix != null){
+	 			if (OP == "PEx"){	
+	 				event.setFormat(player.getDisplayName() + suffix + " " + symbol + " " + OPcolor + ChatColor.translateAlternateColorCodes('&', event.getMessage()));
+	 			}else{
+	 				event.setFormat(OP + suffix + " " + symbol + " " + OPcolor + ChatColor.translateAlternateColorCodes('&', event.getMessage()));
+	 			}
+	 		}else if(suffix != null){
+	 			if (OP == "PEx"){
+	 				event.setFormat(prefix + player.getDisplayName() + symbol + " "+ OPcolor + ChatColor.translateAlternateColorCodes('&', event.getMessage()));
+	 			}else{
+	 				event.setFormat(prefix + OP + symbol + " " + OPcolor + ChatColor.translateAlternateColorCodes('&', event.getMessage()));
+	 			}
+	 		}else{
+	 			if (OP == "PEx"){
+	 				event.setFormat(prefix + player.getDisplayName() + suffix + symbol + " "+ OPcolor + ChatColor.translateAlternateColorCodes('&', event.getMessage()));
+	 			}else{
+	 				event.setFormat(prefix + OP + suffix + symbol + " " + OPcolor + ChatColor.translateAlternateColorCodes('&', event.getMessage()));
+	 			}
+	 		}
+	 	}else if(prefix != null & suffix != null){
+	 		if (nonOP == "PEx"){
+ 				event.setFormat(player.getDisplayName() + symbol + " "+ nonOPcolor + ChatColor.translateAlternateColorCodes('&', event.getMessage()));
+ 			}else{
+ 				event.setFormat(nonOP + symbol + " " + nonOPcolor + ChatColor.translateAlternateColorCodes('&', event.getMessage()));
+ 			}
+	 	}else if(prefix != null){
+	 		if (nonOP == "PEx"){	
+ 				event.setFormat(player.getDisplayName() + suffix + " " + symbol + " " + nonOPcolor + ChatColor.translateAlternateColorCodes('&', event.getMessage()));
+ 			}else{
+ 				event.setFormat(nonOP + suffix + " " + symbol + " " + nonOPcolor + ChatColor.translateAlternateColorCodes('&', event.getMessage()));
+ 			}
 	 	}else if(suffix != null){
-	 		event.setFormat(prefix  + event.getPlayer().getDisplayName() + ChatColor.GRAY + ": "+ ChatColor.WHITE + ChatColor.translateAlternateColorCodes('&', event.getMessage()));
+	 		if (nonOP == "PEx"){
+ 				event.setFormat(prefix + player.getDisplayName() + symbol + " "+ nonOPcolor + ChatColor.translateAlternateColorCodes('&', event.getMessage()));
+ 			}else{
+ 				event.setFormat(prefix + nonOP + symbol + " " + nonOPcolor + ChatColor.translateAlternateColorCodes('&', event.getMessage()));
+ 			}
 	 	}else{
-	 		event.setFormat(prefix  + event.getPlayer().getDisplayName() + suffix + ChatColor.GRAY + ": "+ ChatColor.WHITE + ChatColor.translateAlternateColorCodes('&', event.getMessage()));
+	 		if (nonOP == "PEx"){
+ 				event.setFormat(prefix + player.getDisplayName() + suffix + symbol + " "+ nonOPcolor + ChatColor.translateAlternateColorCodes('&', event.getMessage()));
+ 			}else{
+ 				event.setFormat(prefix + nonOP + suffix + symbol + " " + nonOPcolor + ChatColor.translateAlternateColorCodes('&', event.getMessage()));
+ 			}
 	 	}
 	 }
 }

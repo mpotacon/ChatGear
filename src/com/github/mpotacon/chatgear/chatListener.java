@@ -19,11 +19,11 @@ public class chatListener implements Listener {
 	@EventHandler
 	public void onPlayerChatEvent(AsyncPlayerChatEvent event){
 		Player player = event.getPlayer();
-		String OP = ChatColor.translateAlternateColorCodes('&', "&" + Bukkit.getPluginManager().getPlugin("chatgear").getConfig().getString("OPcolor") + player.getDisplayName());
-	 	String OPcolor = ChatColor.translateAlternateColorCodes('&', "&" + Bukkit.getPluginManager().getPlugin("chatgear").getConfig().getString("OPchatcolor") + event.getMessage());
-	 	String nonOP = ChatColor.translateAlternateColorCodes('&', "&" + Bukkit.getPluginManager().getPlugin("chatgear").getConfig().getString("playercolor") + player.getDisplayName());
-	 	String nonOPcolor = ChatColor.translateAlternateColorCodes('&', "&" + Bukkit.getPluginManager().getPlugin("chatgear").getConfig().getString("playerchatcolor") + event.getMessage());
-	 	//String symbol =  ChatColor.translateAlternateColorCodes('&', Bukkit.getPluginManager().getPlugin("chatgear").getConfig().getString("break"));
+		String OP = ChatColor.translateAlternateColorCodes('&', "&" + Bukkit.getPluginManager().getPlugin("chatgear").getConfig().getString("OP.color") + player.getDisplayName());
+	 	String OPcolor = ChatColor.translateAlternateColorCodes('&', "&" + Bukkit.getPluginManager().getPlugin("chatgear").getConfig().getString("OP.chatcolor") + event.getMessage());
+	 	String nonOP = ChatColor.translateAlternateColorCodes('&', "&" + Bukkit.getPluginManager().getPlugin("chatgear").getConfig().getString("player.color") + player.getDisplayName());
+	 	String nonOPcolor = ChatColor.translateAlternateColorCodes('&', "&" + Bukkit.getPluginManager().getPlugin("chatgear").getConfig().getString("player.chatcolor") + event.getMessage());
+	 	String symbol =  ChatColor.translateAlternateColorCodes('&', Bukkit.getPluginManager().getPlugin("chatgear").getConfig().getString("break"));
 		if(mutedPlayers.containsKey(player.getName())){
 			try{
 			event.setCancelled(true);
@@ -32,9 +32,9 @@ public class chatListener implements Listener {
 				event.setMessage("");
 			}
 		}else if(player.isOp()){
-	 		event.setFormat(OP+ " " + ": " + OPcolor);
+	 		event.setFormat(OP+ " " + symbol + " " + OPcolor);
 	 	}else{ 
-	 		event.setFormat(nonOP + " " + ": " + nonOPcolor);
+	 		event.setFormat(nonOP + " " + symbol + " " + nonOPcolor);
 	 	}
 	 }
 }	
