@@ -7,15 +7,22 @@ player:
     color: 7
     chatcolor: 7
 # Break semprates the player name from the message it must be in quotes
-# if you want to change the color of break then exp: "&7:"
+# if you want to change the color of break then. Example: "&7:"
 break: ":"
 
 # For Chat when using PermissionEx
-# If you want admin and mod colors to be held by PermissionsEx set OP color to PEx exp: color: PEx
-# The some will work for player color
+# If you want group colors to be held by chatgear set PExColor to No
+# to control groups colors with PEx your suffix needs to include the color code you want and your break. 
+# Example: <suffix><break and color>&7
+# to do this in game should the command should look be /pex user <username> suffix &8[&7Example&8]&7:&3   
+PExColor: Yes
 PEx:
-    # AdminGroup = group that your admins resign in, there color will also be held by op colors
-    AdminGroup: Admin
-    # ModGroup = group that your moderators resign in, there color will also be held by op colors
-    ModGroup: Mod
-    # if groups are not set chat will defualt to player colors
+    Group1: Admin
+        color: 4
+        chatcolor: 7
+    Group2: Mod
+        color: 4
+        chatcolor: 7
+    Group3: Player
+        color: 7
+        chatcolor: 7
